@@ -17,8 +17,11 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        //
-    }
+   public function boot(): void
+{
+    \Illuminate\Database\Eloquent\Relations\Relation::enforceMorphMap([
+        'place' => \App\Models\Place::class,
+        'event' => \App\Models\Event::class,
+    ]);
+}
 }
