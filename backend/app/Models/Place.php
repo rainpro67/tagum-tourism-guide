@@ -22,6 +22,18 @@ class Place extends Model
     ];
 
     protected $casts = [
+        'latitude'    => 'float',
+        'longitude'   => 'float',
         'is_featured' => 'boolean',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function favorites()
+    {
+        return $this->morphMany(Favorite::class, 'favoritable');
+    }
 }

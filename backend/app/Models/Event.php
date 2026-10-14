@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Event extends Model
 {
@@ -27,18 +26,23 @@ class Event extends Model
         'is_published' => 'boolean',
     ];
 
-    public function category(): BelongsTo
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function place(): BelongsTo
+    public function place()
     {
         return $this->belongsTo(Place::class);
     }
 
-    public function creator(): BelongsTo
+    public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function favorites()
+    {
+        return $this->morphMany(Favorite::class, 'favoritable');
     }
 }

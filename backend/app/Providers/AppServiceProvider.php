@@ -19,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        \Illuminate\Database\Eloquent\Relations\Relation::enforceMorphMap([
+            'place' => \App\Models\Place::class,
+            'event' => \App\Models\Event::class,
+            'user'  => \App\Models\User::class,
+        ]);
     }
 }
