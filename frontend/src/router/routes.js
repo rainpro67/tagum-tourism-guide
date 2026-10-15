@@ -1,4 +1,3 @@
-
 const routes = [
   // Authentication pages without the main navigation
   {
@@ -17,14 +16,13 @@ const routes = [
     path: '/',
     component: () => import('@/layouts/MainLayout.vue'),
     children: [
-      {
-        path: '',
-        component: () => import('@/pages/IndexPage.vue'),
-      },
-      {
-        path: 'second',
-        component: () => import('@/pages/SecondPage.vue'),
-      },
+      { path: '', component: () => import('@/pages/IndexPage.vue') },
+      { path: 'places', component: () => import('@/pages/PlacesPage.vue') },
+      { path: 'places/:slug', component: () => import('@/pages/PlaceDetailPage.vue') },
+      { path: 'events', component: () => import('@/pages/EventsPage.vue') },
+      { path: 'events/:slug', component: () => import('@/pages/EventDetailPage.vue') },
+      { path: 'favorites', component: () => import('@/pages/FavoritesPage.vue') },
+      { path: 'register', component: () => import('@/pages/RegisterPage.vue') },
     ],
   },
 
