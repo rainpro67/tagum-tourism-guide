@@ -10,9 +10,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1<% if (ctx.mode.cordova || ctx.mode.capacitor) { %>, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover<% } %>"
     />
-        <meta
+    <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com;<% if (ctx.dev) { %> connect-src 'self' http://127.0.0.1:8000 http://localhost:8000 ws://localhost:*; worker-src 'self' blob:;<% } %>"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; connect-src 'self' ws://localhost:* http://127.0.0.1:8000 http://localhost:8000;<% if (ctx.dev) { %> worker-src 'self' blob:;<% } %>"
     />
 
     <link
